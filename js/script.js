@@ -254,7 +254,7 @@ function initChat() {
 
     const agentMessage = document.createElement("p");
     agentMessage.className = "message message--agent";
-    agentMessage.textContent = "Thanks. Your message is ready to send directly to NXWB Studios.";
+    agentMessage.textContent = "Thanks. Your message is ready to send directly to NXW Studios.";
     messages.appendChild(agentMessage);
     messages.scrollTop = messages.scrollHeight;
     input.value = "";
@@ -262,7 +262,7 @@ function initChat() {
     const encodedText = encodeURIComponent(text);
     const target = whatsappNumber
       ? `https://wa.me/${whatsappNumber}?text=${encodedText}`
-      : `mailto:${contactEmail}?subject=NXWB%20Studios%20chat%20message&body=${encodedText}`;
+      : `mailto:${contactEmail}?subject=NXW%20Studios%20chat%20message&body=${encodedText}`;
 
     window.setTimeout(() => {
       window.open(target, "_blank", "noopener");

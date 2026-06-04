@@ -1,6 +1,6 @@
-# NXWB Studios Placeholder Site
+# NXW Studios Placeholder Site
 
-Static HTML, CSS, and JavaScript landing page for `nxwb-studios.co.za`.
+Static HTML, CSS, and JavaScript landing page for NXW Studios / NexWeb AI Studios at `nxwb-studios.co.za`.
 
 ## Files
 
@@ -17,7 +17,7 @@ Upload the contents of this folder to a GitHub repository and publish it with Gi
 
 Recommended setup:
 
-1. Create a new repository, for example `nxwb-placeholder`.
+1. Create a new repository, for example `nxw-placeholder`.
 2. Copy the contents of `placeholder-site` into that repository root.
 3. In GitHub, go to `Settings > Pages`.
 4. Set the source to the `main` branch and root folder.
