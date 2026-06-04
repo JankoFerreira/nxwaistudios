@@ -10,6 +10,45 @@ const analyticsConfig = {
 const canvas = document.querySelector("#world");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const root = document.documentElement;
+const loader = document.querySelector("[data-loader]");
+const loaderBar = document.querySelector("[data-loader-bar]");
+const loaderProgress = document.querySelector("[data-loader-progress]");
+
+document.body.classList.add("is-loading");
+
+function initLoader() {
+  if (!loader) return;
+
+  let progress = 0;
+  let finished = false;
+  const interval = window.setInterval(() => {
+    progress = Math.min(progress + Math.floor(Math.random() * 11) + 7, 92);
+    if (loaderBar) loaderBar.style.width = `${progress}%`;
+    if (loaderProgress) loaderProgress.textContent = `${progress}%`;
+  }, 140);
+
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    window.clearInterval(interval);
+    if (loaderBar) loaderBar.style.width = "100%";
+    if (loaderProgress) loaderProgress.textContent = "100%";
+    window.setTimeout(() => {
+      loader.classList.add("is-hidden");
+      document.body.classList.remove("is-loading");
+    }, 420);
+    window.setTimeout(() => {
+      loader.remove();
+    }, 1200);
+  };
+
+  if (document.readyState === "complete") {
+    window.setTimeout(finish, 650);
+  } else {
+    window.addEventListener("load", () => window.setTimeout(finish, 650), { once: true });
+    window.setTimeout(finish, 2400);
+  }
+}
 
 function supportsWebGL() {
   try {
@@ -340,6 +379,7 @@ function initAnalytics() {
   }
 }
 
+initLoader();
 initWorld();
 initDepthScroll();
 initChat();
