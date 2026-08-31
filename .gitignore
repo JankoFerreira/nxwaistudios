@@ -1,0 +1,17 @@
+node_modules/
+dist/
+
+ferion-placeholder-nxw-base/
+placeholder-site/
+
+ferion-placeholder/node_modules/
+ferion-placeholder/dist/
+ferion-placeholder/debug.log
+
+*.log
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db

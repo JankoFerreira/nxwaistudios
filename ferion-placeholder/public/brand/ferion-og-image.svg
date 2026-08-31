@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Ferion social preview placeholder</title>
+  <desc id="desc">Ferion placeholder social preview with tagline and temporary mark.</desc>
+  <defs>
+    <radialGradient id="g" cx="72%" cy="32%" r="52%">
+      <stop stop-color="#0c8cff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#050914" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#050914"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <path d="M0 510h1200" stroke="#193152" stroke-width="1"/>
+  <path d="M130 90h940v450H130z" fill="none" stroke="#1d385b" stroke-width="1"/>
+  <g transform="translate(770 140) scale(1.15)">
+    <rect width="260" height="260" rx="54" fill="#07111f" stroke="#244f7a"/>
+    <path d="M78 44h122l-36 47h-48l-21 28h51l-33 47H64L43 198V98l35-54Z" fill="#f2f7ff"/>
+    <path d="M116 120h76l-36 47H82l34-47Z" fill="#0c8cff"/>
+    <path d="M43 198h74l-25 34H43v-34Z" fill="#60c2ff"/>
+  </g>
+  <text x="142" y="214" fill="#f7fbff" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="12">FERION</text>
+  <text x="148" y="294" fill="#f7fbff" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">Smart Systems. Stronger Businesses.</text>
+  <text x="150" y="366" fill="#aab6c8" font-family="Arial, Helvetica, sans-serif" font-size="27">Custom software, intelligent automation and digital platforms.</text>
+  <text x="150" y="474" fill="#58b8ff" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="4">NXW STUDIOS IS BECOMING FERION</text>
+</svg>

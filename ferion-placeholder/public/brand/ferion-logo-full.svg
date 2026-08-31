@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="220" viewBox="0 0 780 220" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary Ferion logo placeholder</title>
+  <desc id="desc">Temporary geometric mark and Ferion wordmark. Replace with the approved Ferion logo.</desc>
+  <rect width="780" height="220" rx="24" fill="#050914"/>
+  <g transform="translate(64 34)">
+    <path d="M36 0h116l-34 44H72l-20 27h49L69 115H20L0 145V52L36 0Z" fill="#eef6ff"/>
+    <path d="M72 72h72l-34 44H39l33-44Z" fill="#0c8cff"/>
+    <path d="M0 145h70l-24 32H0v-32Z" fill="#58b8ff"/>
+  </g>
+  <g fill="#f7fbff" font-family="Arial, Helvetica, sans-serif">
+    <text x="250" y="96" font-size="54" font-weight="700" letter-spacing="10">FERION</text>
+    <text x="253" y="138" font-size="19" fill="#aab6c8" letter-spacing="1.5">Smart Systems. Stronger Businesses.</text>
+  </g>
+  <path d="M610 39h90M655 39v90M610 129h90" stroke="#0c8cff" stroke-width="1.5" opacity=".28"/>
+</svg>
