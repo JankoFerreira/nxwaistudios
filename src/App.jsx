@@ -38,13 +38,19 @@ export default function App() {
     const mobileQuery = window.matchMedia('(max-width: 768px)')
     if (mobileQuery.matches) {
       let ticking = false
-      const getMaxScroll = () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
+      const getMaxScroll = () =>
+        Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
       const updateMobileProgress = () => {
         ticking = false
-        const progress = Math.min(Math.max(window.scrollY / getMaxScroll(), 0), 1)
+        const progress = Math.min(
+          Math.max(window.scrollY / getMaxScroll(), 0),
+          1
+        )
         window._nxwScrollProgress = progress
         window._nxwFinaleProgress = 0
-        window._nxwActiveSectionIndex = SECTION_IDS.indexOf(activeSectionRef.current)
+        window._nxwActiveSectionIndex = SECTION_IDS.indexOf(
+          activeSectionRef.current
+        )
         setScrollProgress(progress)
       }
 
@@ -54,18 +60,26 @@ export default function App() {
         requestAnimationFrame(updateMobileProgress)
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (visible?.target?.id && visible.target.id !== activeSectionRef.current) {
-          activeSectionRef.current = visible.target.id
-          window._nxwActiveSectionIndex = SECTION_IDS.indexOf(visible.target.id)
-          setActiveSection(visible.target.id)
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+          if (
+            visible?.target?.id &&
+            visible.target.id !== activeSectionRef.current
+          ) {
+            activeSectionRef.current = visible.target.id
+            window._nxwActiveSectionIndex = SECTION_IDS.indexOf(
+              visible.target.id
+            )
+            setActiveSection(visible.target.id)
+          }
+        },
+        {
+          threshold: [0.35, 0.55, 0.75],
         }
-      }, {
-        threshold: [0.35, 0.55, 0.75],
-      })
+      )
 
       SECTION_IDS.forEach((id) => {
         const section = document.getElementById(id)
@@ -74,9 +88,13 @@ export default function App() {
 
       window._nxwScrollToSection = (id) => {
         const section = document.getElementById(id)
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        if (section)
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
-      window._nxwScrollProgress = Math.min(Math.max(window.scrollY / getMaxScroll(), 0), 1)
+      window._nxwScrollProgress = Math.min(
+        Math.max(window.scrollY / getMaxScroll(), 0),
+        1
+      )
       window._nxwFinaleProgress = 0
       window._nxwActiveSectionIndex = 0
       window.addEventListener('scroll', onMobileScroll, { passive: true })
@@ -104,13 +122,16 @@ export default function App() {
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
     const sectionMaxPanel = SECTION_IDS.length - 1
     const maxPanel = SECTION_IDS.length
-    const getMaxScroll = () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
+    const getMaxScroll = () =>
+      Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
     const panelToScroll = (index) => (index / maxPanel) * getMaxScroll()
 
-    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 
     const scrollToPanel = (index) => {
-      const currentPanel = clamp(window.scrollY / getMaxScroll(), 0, 1) * maxPanel
+      const currentPanel =
+        clamp(window.scrollY / getMaxScroll(), 0, 1) * maxPanel
       desiredPanel = clamp(index, 0, maxPanel)
       scrollDirection = Math.sign(desiredPanel - currentPanel)
       programmaticScroll = true
@@ -174,7 +195,8 @@ export default function App() {
           programmaticScroll = false
           scrollDirection = 0
           lastWheelStep = now
-          const reverseTarget = direction > 0 ? Math.ceil(smoothPanel) : Math.floor(smoothPanel)
+          const reverseTarget =
+            direction > 0 ? Math.ceil(smoothPanel) : Math.floor(smoothPanel)
           scrollToPanel(reverseTarget)
         }
         return
@@ -223,7 +245,8 @@ export default function App() {
 
       const baseIndex = clamp(Math.floor(smoothPanel), 0, sectionMaxPanel)
       const localProgress = smoothPanel - baseIndex
-      const returningFromFinale = finaleProgress > 0 && targetPanel < sectionMaxPanel + 0.45
+      const returningFromFinale =
+        finaleProgress > 0 && targetPanel < sectionMaxPanel + 0.45
       SECTION_IDS.forEach((id, index) => {
         const section = document.getElementById(id)
         if (!section) return
@@ -282,14 +305,20 @@ export default function App() {
           opacity = clamp((progress - 0.08) * 1.3, 0, 1)
           blur = (1 - progress) * 5.5
           landingPulse = Math.max(0, 1 - Math.abs(1 - progress) * 8)
-        } else if (index === sectionMaxPanel && smoothPanel >= sectionMaxPanel - 0.01) {
+        } else if (
+          index === sectionMaxPanel &&
+          smoothPanel >= sectionMaxPanel - 0.01
+        ) {
           opacity = 1
           landingPulse = 1
         }
 
         section.classList.toggle('depth-section--active', index === activeIndex)
         section.classList.toggle('depth-section--finale', finaleProgress > 0.01)
-        section.classList.toggle('depth-section--contact-return', index === sectionMaxPanel && returningFromFinale)
+        section.classList.toggle(
+          'depth-section--contact-return',
+          index === sectionMaxPanel && returningFromFinale
+        )
         section.dataset.finaleLabel = SECTION_LABELS[index]
         section.style.setProperty('--arc-x', `${x.toFixed(3)}vw`)
         section.style.setProperty('--arc-y', `${y.toFixed(3)}vh`)
@@ -297,13 +326,18 @@ export default function App() {
         section.style.setProperty('--arc-rotate', `${rotate.toFixed(3)}deg`)
         section.style.setProperty('--arc-scale', scale.toFixed(4))
         section.style.setProperty('--arc-opacity', opacity.toFixed(4))
-        const resolvedBlur = index === sectionMaxPanel && returningFromFinale ? 0 : blur
+        const resolvedBlur =
+          index === sectionMaxPanel && returningFromFinale ? 0 : blur
         section.style.setProperty('--arc-blur', `${resolvedBlur.toFixed(3)}px`)
         section.style.setProperty('--arc-pulse', landingPulse.toFixed(4))
-        section.style.pointerEvents = opacity > 0.7 && finaleProgress < 0.7 ? 'auto' : 'none'
+        section.style.pointerEvents =
+          opacity > 0.7 && finaleProgress < 0.7 ? 'auto' : 'none'
       })
 
-      if (activeIndex !== lastUiSection || Math.abs(smoothProgress - lastUiProgress) > 0.012) {
+      if (
+        activeIndex !== lastUiSection ||
+        Math.abs(smoothProgress - lastUiProgress) > 0.012
+      ) {
         lastUiSection = activeIndex
         lastUiProgress = smoothProgress
         setScrollProgress(smoothProgress)
@@ -342,7 +376,10 @@ export default function App() {
       <ThreeScene loaded={loaded} />
       {loaded && (
         <>
-          <Navbar scrollProgress={scrollProgress} activeSection={activeSection} />
+          <Navbar
+            scrollProgress={scrollProgress}
+            activeSection={activeSection}
+          />
           <JourneyRail scrollProgress={scrollProgress} />
           <main className="scroll-container">
             <HeroSection />
@@ -371,7 +408,11 @@ function PresenceField() {
         <span
           key={visitor.id}
           className="presence-field__visitor"
-          style={{ '--x': visitor.x, '--y': visitor.y, '--delay': visitor.delay }}
+          style={{
+            '--x': visitor.x,
+            '--y': visitor.y,
+            '--delay': visitor.delay,
+          }}
         >
           <span className="presence-field__dot" />
           <span className="presence-field__label">{visitor.label}</span>

@@ -81,7 +81,9 @@
   padding: clamp(1rem, 2vh, 1.75rem);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
 }
 
 .about__card:hover {
@@ -91,7 +93,9 @@
 
 .about__card-bar {
   position: absolute;
-  left: 0; top: 0; bottom: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, var(--cyan), var(--purple));
   opacity: 0;
@@ -107,9 +111,13 @@
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  .about__right { padding-top: 0; }
+  .about__right {
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .about { padding: 5rem 1.5rem; }
+  .about {
+    padding: 5rem 1.5rem;
+  }
 }

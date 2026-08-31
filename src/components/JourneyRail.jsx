@@ -23,7 +23,10 @@ export default function JourneyRail({ scrollProgress }) {
     <aside className="journey-rail" aria-label="Page journey">
       <span className="journey-rail__hint text-mono">Depth Scroll</span>
       <div className="journey-rail__line">
-        <span className="journey-rail__fill" style={{ transform: `scaleY(${scrollProgress})` }} />
+        <span
+          className="journey-rail__fill"
+          style={{ transform: `scaleY(${scrollProgress})` }}
+        />
       </div>
       <div className="journey-rail__stops">
         {stops.map((stop, index) => (

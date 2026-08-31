@@ -16,7 +16,8 @@ export default function Loader() {
           setTimeout(() => setPhase(2), 1450)
           return 100
         }
-        const increment = prev < 68 ? Math.random() * 5 + 1.8 : Math.random() * 1.7 + 0.55
+        const increment =
+          prev < 68 ? Math.random() * 5 + 1.8 : Math.random() * 1.7 + 0.55
         return Math.min(100, prev + increment)
       })
     }, 74)
@@ -30,11 +31,21 @@ export default function Loader() {
 
     const isSmall = window.matchMedia('(max-width: 760px)').matches
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(48, mount.clientWidth / mount.clientHeight, 0.1, 100)
+    const camera = new THREE.PerspectiveCamera(
+      48,
+      mount.clientWidth / mount.clientHeight,
+      0.1,
+      100
+    )
     camera.position.set(0, 0, 6.35)
 
-    const renderer = new THREE.WebGLRenderer({ antialias: !isSmall, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isSmall ? 1 : 1.45))
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isSmall,
+      alpha: true,
+    })
+    renderer.setPixelRatio(
+      Math.min(window.devicePixelRatio, isSmall ? 1 : 1.45)
+    )
     renderer.setSize(mount.clientWidth, mount.clientHeight)
     renderer.setClearColor(0x000000, 0)
     mount.appendChild(renderer.domElement)
@@ -45,7 +56,12 @@ export default function Loader() {
     group.scale.setScalar(0.9)
     scene.add(group)
 
-    const ringGeo = new THREE.TorusGeometry(1.55, 0.085, isSmall ? 14 : 18, isSmall ? 90 : 136)
+    const ringGeo = new THREE.TorusGeometry(
+      1.55,
+      0.085,
+      isSmall ? 14 : 18,
+      isSmall ? 90 : 136
+    )
     const ringMat = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -216,7 +232,10 @@ export default function Loader() {
       const travel = Math.min(elapsed / 1.8, 1)
       const easedTravel = 1 - Math.pow(1 - travel, 3)
       const settle = Math.max(0, Math.min((elapsed - 1.8) / 1.2, 1))
-      const settleEase = settle < 0.5 ? 4 * settle * settle * settle : 1 - Math.pow(-2 * settle + 2, 3) / 2
+      const settleEase =
+        settle < 0.5
+          ? 4 * settle * settle * settle
+          : 1 - Math.pow(-2 * settle + 2, 3) / 2
       const exit = Math.max(0, Math.min((elapsed - 3.22) / 0.5, 1))
 
       group.position.x = -7 + 7 * easedTravel
@@ -233,7 +252,8 @@ export default function Loader() {
       innerRing.rotation.z = -elapsed * 0.42
       outerRing.rotation.y = elapsed * 0.35
       ringMat.uniforms.uTime.value = elapsed
-      ringMat.uniforms.uEnergy.value += (settleEase - ringMat.uniforms.uEnergy.value) * 0.08
+      ringMat.uniforms.uEnergy.value +=
+        (settleEase - ringMat.uniforms.uEnergy.value) * 0.08
       cyanMat.uniforms.uTime.value = elapsed
       cyanMat.uniforms.uOpacity.value = 0.44 + settleEase * 0.18
       purpleMat.uniforms.uTime.value = elapsed
@@ -264,7 +284,9 @@ export default function Loader() {
   }, [])
 
   return (
-    <div className={`loader ${phase === 1 ? 'loader--settled' : ''} ${phase === 2 ? 'loader--exit' : ''}`}>
+    <div
+      className={`loader ${phase === 1 ? 'loader--settled' : ''} ${phase === 2 ? 'loader--exit' : ''}`}
+    >
       <div className="loader__bg" />
       <div className="loader__scene" ref={mountRef} aria-hidden="true" />
 

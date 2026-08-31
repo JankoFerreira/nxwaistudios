@@ -4,7 +4,10 @@ import * as THREE from 'three'
 function supportsWebGL() {
   try {
     const canvas = document.createElement('canvas')
-    return Boolean(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')))
+    return Boolean(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    )
   } catch {
     return false
   }
@@ -34,8 +37,12 @@ export default function ThreeScene({ loaded }) {
     }
 
     const isSmall = window.matchMedia('(max-width: 760px)').matches
-    const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isCoarse = window.matchMedia(
+      '(hover: none), (pointer: coarse)'
+    ).matches
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
     const enableEnhancedWorld = !isSmall && !isCoarse && !prefersReducedMotion
     const pixelRatioCap = isSmall ? 1 : 1.45
     const mobileSceneScale = isSmall ? 0.48 : 1
@@ -45,10 +52,18 @@ export default function ThreeScene({ loaded }) {
     const scene = new THREE.Scene()
     scene.fog = new THREE.FogExp2(0x0c1220, 0.035)
 
-    const camera = new THREE.PerspectiveCamera(75, mount.clientWidth / mount.clientHeight, 0.1, 200)
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      mount.clientWidth / mount.clientHeight,
+      0.1,
+      200
+    )
     camera.position.set(0, 0, 5)
 
-    const renderer = new THREE.WebGLRenderer({ antialias: !isSmall, alpha: true })
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isSmall,
+      alpha: true,
+    })
     // Performance settings: cap DPR exactly as requested, and reduce antialias
     // work on smaller screens.
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioCap))
@@ -88,7 +103,14 @@ export default function ThreeScene({ loaded }) {
     ]
 
     // Keep the original hero TorusKnot object and shader treatment.
-    const torusGeo = new THREE.TorusKnotGeometry(1.38, 0.34, isSmall ? 96 : 180, isSmall ? 14 : 22, 2, 3)
+    const torusGeo = new THREE.TorusKnotGeometry(
+      1.38,
+      0.34,
+      isSmall ? 96 : 180,
+      isSmall ? 14 : 22,
+      2,
+      3
+    )
     const torusMat = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -167,7 +189,12 @@ export default function ThreeScene({ loaded }) {
     torusEdgeRef.current = edgeGlow
 
     // Restore the original bottom grid blanket under the hero.
-    const gridGeo = new THREE.PlaneGeometry(60, 60, isSmall ? 24 : 40, isSmall ? 24 : 40)
+    const gridGeo = new THREE.PlaneGeometry(
+      60,
+      60,
+      isSmall ? 24 : 40,
+      isSmall ? 24 : 40
+    )
     const gridMat = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -303,21 +330,51 @@ export default function ThreeScene({ loaded }) {
       if (isSmall) lastSmallFrame = t
       const sp = window._nxwScrollProgress || 0
       const finale = window._nxwFinaleProgress || 0
-      const sectionIndex = Math.max(0, Math.min(4, window._nxwActiveSectionIndex || 0))
+      const sectionIndex = Math.max(
+        0,
+        Math.min(4, window._nxwActiveSectionIndex || 0)
+      )
       const activeWork = Math.max(0, Math.min(3, window._nxwActiveWork || 0))
-      const sectionAccent = sectionIndex === 3 ? workPalette[activeWork] : sectionPalette[sectionIndex]
-      const sectionEnergy = Math.min(1, Math.abs(Math.sin(sp * Math.PI * 2.5)) * 0.45 + sectionIndex * 0.11 + finale * 0.35)
-      const finaleEase = finale < 0.5 ? 4 * finale * finale * finale : 1 - Math.pow(-2 * finale + 2, 3) / 2
+      const sectionAccent =
+        sectionIndex === 3
+          ? workPalette[activeWork]
+          : sectionPalette[sectionIndex]
+      const sectionEnergy = Math.min(
+        1,
+        Math.abs(Math.sin(sp * Math.PI * 2.5)) * 0.45 +
+          sectionIndex * 0.11 +
+          finale * 0.35
+      )
+      const finaleEase =
+        finale < 0.5
+          ? 4 * finale * finale * finale
+          : 1 - Math.pow(-2 * finale + 2, 3) / 2
       if (torusRef.current) {
         torusRef.current.material.uniforms.uTime.value = t
-        torusRef.current.material.uniforms.uAccent.value.lerp(sectionAccent, 0.045)
-        torusRef.current.material.uniforms.uSection.value += (sectionIndex - torusRef.current.material.uniforms.uSection.value) * 0.04
-        torusRef.current.material.uniforms.uEnergy.value += (sectionEnergy - torusRef.current.material.uniforms.uEnergy.value) * 0.035
-        torusRef.current.rotation.x = t * (0.06 + finaleEase * 0.1) + sp * 0.42 + mouseRef.current.y * 0.08
-        torusRef.current.rotation.y = t * (0.085 + finaleEase * 0.12) + mouseRef.current.x * 0.12
+        torusRef.current.material.uniforms.uAccent.value.lerp(
+          sectionAccent,
+          0.045
+        )
+        torusRef.current.material.uniforms.uSection.value +=
+          (sectionIndex - torusRef.current.material.uniforms.uSection.value) *
+          0.04
+        torusRef.current.material.uniforms.uEnergy.value +=
+          (sectionEnergy - torusRef.current.material.uniforms.uEnergy.value) *
+          0.035
+        torusRef.current.rotation.x =
+          t * (0.06 + finaleEase * 0.1) + sp * 0.42 + mouseRef.current.y * 0.08
+        torusRef.current.rotation.y =
+          t * (0.085 + finaleEase * 0.12) + mouseRef.current.x * 0.12
         torusRef.current.rotation.z = t * 0.035
-        const sectionScale = 1 + sectionIndex * 0.025 + (sectionIndex === 3 ? activeWork * 0.015 : 0)
-        torusRef.current.scale.setScalar((((1 + sp * 0.42) * sectionScale) * (1 - finaleEase) + 0.68 * finaleEase) * mobileSceneScale)
+        const sectionScale =
+          1 +
+          sectionIndex * 0.025 +
+          (sectionIndex === 3 ? activeWork * 0.015 : 0)
+        torusRef.current.scale.setScalar(
+          ((1 + sp * 0.42) * sectionScale * (1 - finaleEase) +
+            0.68 * finaleEase) *
+            mobileSceneScale
+        )
         torusRef.current.visible = sp < 0.35 || finale > 0.01
       }
       if (torusEdgeRef.current) {
@@ -329,7 +386,10 @@ export default function ThreeScene({ loaded }) {
       }
       if (fieldRef.current) {
         fieldRef.current.material.uniforms.uTime.value = t
-        fieldRef.current.material.uniforms.uAccent.value.lerp(sectionAccent, 0.04)
+        fieldRef.current.material.uniforms.uAccent.value.lerp(
+          sectionAccent,
+          0.04
+        )
         fieldRef.current.rotation.y = t * 0.012 + mouseRef.current.x * 0.025
         fieldRef.current.rotation.x = mouseRef.current.y * 0.018
       }
@@ -337,12 +397,16 @@ export default function ThreeScene({ loaded }) {
         haloRef.current.material.color.lerp(sectionAccent, 0.04)
         haloRef.current.rotation.x = -t * 0.035 + sp * 0.5
         haloRef.current.rotation.y = t * 0.05 + mouseRef.current.x * 0.18
-        haloRef.current.scale.setScalar(1 + sectionEnergy * 0.18 + finaleEase * 0.3)
+        haloRef.current.scale.setScalar(
+          1 + sectionEnergy * 0.18 + finaleEase * 0.3
+        )
         haloRef.current.visible = !isSmall || finale > 0.01
       }
 
-      const scrollCamX = Math.sin(sp * Math.PI * 1.7) * 2.2 + mouseRef.current.x * 0.18
-      const scrollCamY = Math.sin(sp * Math.PI * 2.2) * 1.4 - sp * 3 + mouseRef.current.y * 0.1
+      const scrollCamX =
+        Math.sin(sp * Math.PI * 1.7) * 2.2 + mouseRef.current.x * 0.18
+      const scrollCamY =
+        Math.sin(sp * Math.PI * 2.2) * 1.4 - sp * 3 + mouseRef.current.y * 0.1
       const scrollCamZ = 6 - sp * 72 + Math.sin(sp * Math.PI * 2) * 2.4
       const camX = scrollCamX * (1 - finaleEase)
       const camY = scrollCamY * (1 - finaleEase)
@@ -352,7 +416,11 @@ export default function ThreeScene({ loaded }) {
       targetCamRef.current.y += (camY - targetCamRef.current.y) * 0.06
       targetCamRef.current.z += (camZ - targetCamRef.current.z) * 0.06
 
-      camera.position.set(targetCamRef.current.x, targetCamRef.current.y, targetCamRef.current.z)
+      camera.position.set(
+        targetCamRef.current.x,
+        targetCamRef.current.y,
+        targetCamRef.current.z
+      )
       camera.lookAt(
         targetCamRef.current.x * 0.3,
         targetCamRef.current.y,
@@ -380,7 +448,8 @@ export default function ThreeScene({ loaded }) {
       scene.traverse((child) => {
         if (child.geometry) child.geometry.dispose()
         if (child.material) {
-          if (Array.isArray(child.material)) child.material.forEach((mat) => mat.dispose())
+          if (Array.isArray(child.material))
+            child.material.forEach((mat) => mat.dispose())
           else child.material.dispose()
         }
       })
@@ -391,5 +460,9 @@ export default function ThreeScene({ loaded }) {
     }
   }, [loaded])
 
-  return <div id="canvas-container" ref={mountRef}>{fallback && <div className="webgl-fallback" />}</div>
+  return (
+    <div id="canvas-container" ref={mountRef}>
+      {fallback && <div className="webgl-fallback" />}
+    </div>
+  )
 }

@@ -25,6 +25,22 @@ export default function Cursor() {
       ringRef.current?.classList.remove('hover')
     }
 
+    let hoverTargets = []
+    const syncHoverTargets = () => {
+      hoverTargets.forEach((el) => {
+        el.removeEventListener('mouseenter', onEnter)
+        el.removeEventListener('mouseleave', onLeave)
+      })
+
+      hoverTargets = Array.from(
+        document.querySelectorAll('a, button, .hoverable')
+      )
+      hoverTargets.forEach((el) => {
+        el.addEventListener('mouseenter', onEnter)
+        el.addEventListener('mouseleave', onLeave)
+      })
+    }
+
     const animate = () => {
       ring.current.x += (pos.current.x - ring.current.x) * 0.12
       ring.current.y += (pos.current.y - ring.current.y) * 0.12
@@ -37,24 +53,20 @@ export default function Cursor() {
     rafRef.current = requestAnimationFrame(animate)
 
     document.addEventListener('mousemove', onMove)
-    document.querySelectorAll('a, button, .hoverable').forEach(el => {
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
-    })
+    syncHoverTargets()
 
     // Re-attach on DOM changes
     const observer = new MutationObserver(() => {
-      document.querySelectorAll('a, button, .hoverable').forEach(el => {
-        el.removeEventListener('mouseenter', onEnter)
-        el.removeEventListener('mouseleave', onLeave)
-        el.addEventListener('mouseenter', onEnter)
-        el.addEventListener('mouseleave', onLeave)
-      })
+      syncHoverTargets()
     })
     observer.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       document.removeEventListener('mousemove', onMove)
+      hoverTargets.forEach((el) => {
+        el.removeEventListener('mouseenter', onEnter)
+        el.removeEventListener('mouseleave', onLeave)
+      })
       cancelAnimationFrame(rafRef.current)
       observer.disconnect()
     }
@@ -62,8 +74,8 @@ export default function Cursor() {
 
   return (
     <>
-      <div className="cursor" ref={dotRef} />
-      <div className="cursor-ring" ref={ringRef} />
+      <div className="cursor" ref={dotRef} aria-hidden="true" />
+      <div className="cursor-ring" ref={ringRef} aria-hidden="true" />
     </>
   )
 }

@@ -12,8 +12,17 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 28%, rgba(0, 0, 0, 0.18)),
-    radial-gradient(ellipse 58% 42% at 50% 38%, rgba(0, 245, 255, 0.045) 0%, transparent 66%);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.018),
+      transparent 28%,
+      rgba(0, 0, 0, 0.18)
+    ),
+    radial-gradient(
+      ellipse 58% 42% at 50% 38%,
+      rgba(0, 245, 255, 0.045) 0%,
+      transparent 66%
+    );
   pointer-events: none;
 }
 
@@ -58,15 +67,32 @@
 /* Corner decorations */
 .logo-reveal__corner {
   position: absolute;
-  width: 30px; height: 30px;
+  width: 30px;
+  height: 30px;
   border-color: rgba(215, 248, 255, 0.5);
   border-style: solid;
 }
 
-.logo-reveal__corner--tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
-.logo-reveal__corner--tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
-.logo-reveal__corner--bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-.logo-reveal__corner--br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+.logo-reveal__corner--tl {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+.logo-reveal__corner--tr {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+.logo-reveal__corner--bl {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+.logo-reveal__corner--br {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
 
 /* Main letters */
 .logo-reveal__letters {
@@ -102,16 +128,33 @@
 
 /* Alternate letter colors */
 .logo-reveal__letter:nth-child(1) {
-  background: linear-gradient(160deg, var(--cyan) 0%, rgba(0, 245, 255, 0.7) 100%);
-  -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(
+    160deg,
+    var(--cyan) 0%,
+    rgba(0, 245, 255, 0.7) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 .logo-reveal__letter:nth-child(2) {
-  background: linear-gradient(160deg, var(--white) 0%, #d7f8ff 52%, var(--purple) 100%);
-  -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(
+    160deg,
+    var(--white) 0%,
+    #d7f8ff 52%,
+    var(--purple) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 .logo-reveal__letter:nth-child(3) {
-  background: linear-gradient(160deg, #ff9a3d 0%, var(--purple) 34%, var(--cyan) 100%);
-  -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(
+    160deg,
+    #ff9a3d 0%,
+    var(--purple) 34%,
+    var(--cyan) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* Animated scanlines over letters */
@@ -123,7 +166,7 @@
 .logo-reveal__underline {
   width: 100%;
   height: 2px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   margin-top: 0.5rem;
   overflow: hidden;
 }
@@ -131,7 +174,14 @@
 .logo-reveal__underline-inner {
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, transparent, var(--cyan), #d7f8ff, #ff9a3d, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan),
+    #d7f8ff,
+    #ff9a3d,
+    transparent
+  );
   background-size: 200% 100%;
 }
 
@@ -195,14 +245,22 @@
 }
 
 @media (max-width: 768px) {
-  .logo-reveal__content { padding: 4rem 1.5rem; gap: 2rem; }
-  .logo-reveal__frame { padding: 1.5rem 1.5rem; }
+  .logo-reveal__content {
+    padding: 4rem 1.5rem;
+    gap: 2rem;
+  }
+  .logo-reveal__frame {
+    padding: 1.5rem 1.5rem;
+  }
   .logo-reveal__contact-inner {
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem;
   }
-  .logo-reveal__footer { flex-direction: column; align-items: flex-start; }
+  .logo-reveal__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .logo-reveal.depth-section::after {

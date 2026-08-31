@@ -49,34 +49,6 @@
   margin-top: 0.5rem;
 }
 
-.hero__stats {
-  display: flex;
-  gap: 3rem;
-  margin-top: clamp(0.8rem, 2vh, 1.8rem);
-  padding-top: clamp(0.8rem, 1.8vh, 1.4rem);
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-
-.hero__stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.hero__stat-num {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.hero__stat-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--white-dim);
-}
-
 .hero__scroll-hint {
   position: absolute;
   right: 2.5rem;
@@ -95,7 +67,8 @@
 }
 
 .hero__scroll-dot {
-  width: 8px; height: 8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
@@ -103,16 +76,27 @@
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .hero__deco {
   position: absolute;
 }
 
-.hero__deco--tl { top: 8rem; left: 2.5rem; }
-.hero__deco--tr { top: 8rem; right: 2.5rem; }
+.hero__deco--tl {
+  top: 8rem;
+  left: 2.5rem;
+}
+.hero__deco--tr {
+  top: 8rem;
+  right: 2.5rem;
+}
 
 @media (max-width: 768px) {
   .hero {
@@ -156,10 +140,10 @@
     font-size: 0.66rem;
   }
 
-  .hero__stats {
+  .hero__scroll-hint {
     display: none;
   }
-
-  .hero__scroll-hint { display: none; }
-  .hero__deco { display: none; }
+  .hero__deco {
+    display: none;
+  }
 }

@@ -29,7 +29,12 @@
   position: absolute;
   inset: 0;
   transform-origin: top;
-  background: linear-gradient(to bottom, var(--cyan), var(--purple), var(--white));
+  background: linear-gradient(
+    to bottom,
+    var(--cyan),
+    var(--purple),
+    var(--white)
+  );
 }
 
 .journey-rail__stops {
@@ -61,7 +66,11 @@
   border-radius: 50%;
   background: rgba(8, 12, 20, 0.8);
   box-shadow: 0 0 0 rgba(0, 245, 255, 0);
-  transition: transform 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .journey-rail__label {
@@ -72,7 +81,10 @@
   letter-spacing: 0.12em;
   opacity: 0;
   transform: translateX(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
 }
 
 .journey-rail__stop:hover,

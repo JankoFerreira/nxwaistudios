@@ -57,12 +57,17 @@ export default function ServicesSection() {
     const ctx = gsap.context(() => {
       gsap.from('.services__header', {
         scrollTrigger: { trigger: '.services__header', start: 'top 85%' },
-        opacity: 0, y: 50, duration: 1
+        opacity: 0,
+        y: 50,
+        duration: 1,
       })
 
       gsap.from('.service-item', {
         scrollTrigger: { trigger: '.services__list', start: 'top 80%' },
-        opacity: 0, y: 40, stagger: 0.1, duration: 0.7
+        opacity: 0,
+        y: 40,
+        stagger: 0.1,
+        duration: 0.7,
       })
 
       // Marquee for technology strip
@@ -76,10 +81,35 @@ export default function ServicesSection() {
     return () => ctx.revert()
   }, [])
 
-  const marqueeItems = ['Three.js', '.', 'WebGL', '.', 'React', '.', 'AI', '.', 'GSAP', '.', 'Node.js', '.', 'WebXR', '.', 'GLSL', '.', 'LLMs', '.', 'Canvas', '.']
+  const marqueeItems = [
+    'Three.js',
+    '.',
+    'WebGL',
+    '.',
+    'React',
+    '.',
+    'AI',
+    '.',
+    'GSAP',
+    '.',
+    'Node.js',
+    '.',
+    'WebXR',
+    '.',
+    'GLSL',
+    '.',
+    'LLMs',
+    '.',
+    'Canvas',
+    '.',
+  ]
 
   return (
-    <section className="section services depth-section" id="services" ref={sectionRef}>
+    <section
+      className="section services depth-section"
+      id="services"
+      ref={sectionRef}
+    >
       <div className="grid-bg" />
 
       <div className="services__inner">
@@ -88,34 +118,74 @@ export default function ServicesSection() {
           <h2 className="display-lg" style={{ marginTop: '1.5rem' }}>
             Our <span className="grad-cyan">Services</span>
           </h2>
-          <p className="text-body" style={{ maxWidth: '500px', marginTop: '1rem' }}>
-            A full-service creative technology studio. We handle everything - strategy, design, engineering, and AI integration.
+          <p
+            className="text-body"
+            style={{ maxWidth: '500px', marginTop: '1rem' }}
+          >
+            A full-service creative technology studio. We handle everything -
+            strategy, design, engineering, and AI integration.
           </p>
         </div>
 
         <div className="services__list">
-          {services.map((service, i) => (
-            <div className={`service-item glass-card hoverable`} key={service.id}>
+          {services.map((service) => (
+            <div
+              className={`service-item glass-card hoverable`}
+              key={service.id}
+            >
               <div className="service-item__header">
-                <span className="service-item__num text-mono" style={{ color: service.color === 'cyan' ? 'var(--cyan)' : 'var(--purple)' }}>
+                <span
+                  className="service-item__num text-mono"
+                  style={{
+                    color:
+                      service.color === 'cyan'
+                        ? 'var(--cyan)'
+                        : 'var(--purple)',
+                  }}
+                >
                   {service.id}
                 </span>
-                <div className="service-item__line" style={{ background: service.color === 'cyan' ? 'var(--cyan)' : 'var(--purple)' }} />
+                <div
+                  className="service-item__line"
+                  style={{
+                    background:
+                      service.color === 'cyan'
+                        ? 'var(--cyan)'
+                        : 'var(--purple)',
+                  }}
+                />
               </div>
               <h3 className="service-item__title">{service.title}</h3>
               <p className="text-body service-item__desc">{service.desc}</p>
               <div className="service-item__tags">
-                {service.tags.map(tag => (
-                  <span className="service-item__tag" key={tag}
-                    style={{ borderColor: service.color === 'cyan' ? 'rgba(0,245,255,0.2)' : 'rgba(168,85,247,0.2)',
-                             color: service.color === 'cyan' ? 'var(--cyan)' : 'var(--purple-light)' }}>
+                {service.tags.map((tag) => (
+                  <span
+                    className="service-item__tag"
+                    key={tag}
+                    style={{
+                      borderColor:
+                        service.color === 'cyan'
+                          ? 'rgba(0,245,255,0.2)'
+                          : 'rgba(168,85,247,0.2)',
+                      color:
+                        service.color === 'cyan'
+                          ? 'var(--cyan)'
+                          : 'var(--purple-light)',
+                    }}
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
               <div className="service-item__arrow">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M4 10h12M10 4l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
             </div>
@@ -127,7 +197,10 @@ export default function ServicesSection() {
       <div className="services__marquee">
         <div className="services__marquee-inner">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={`services__marquee-item ${item === '.' ? 'dot' : ''}`}>
+            <span
+              key={i}
+              className={`services__marquee-item ${item === '.' ? 'dot' : ''}`}
+            >
               {item}
             </span>
           ))}
