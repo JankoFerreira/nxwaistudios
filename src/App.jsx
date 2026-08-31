@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import ThreeScene from './components/ThreeScene'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
@@ -9,6 +8,8 @@ import WorkSection from './components/WorkSection'
 import LogoReveal from './components/LogoReveal'
 import JourneyRail from './components/JourneyRail'
 import Loader from './components/Loader'
+
+const ThreeScene = lazy(() => import('./components/ThreeScene'))
 
 const SECTION_IDS = ['hero', 'about', 'services', 'work', 'contact']
 const SECTION_LABELS = ['Home', 'About', 'Services', 'Work', 'Contact']
@@ -373,7 +374,13 @@ export default function App() {
       <Cursor />
       {loaded && <PresenceField />}
       <div className="noise-overlay" />
-      <ThreeScene loaded={loaded} />
+      {loaded ? (
+        <Suspense fallback={<SceneFallback />}>
+          <ThreeScene loaded={loaded} />
+        </Suspense>
+      ) : (
+        <SceneFallback />
+      )}
       {loaded && (
         <>
           <Navbar
@@ -392,6 +399,14 @@ export default function App() {
         </>
       )}
     </>
+  )
+}
+
+function SceneFallback() {
+  return (
+    <div id="canvas-container" aria-hidden="true">
+      <div className="webgl-fallback" />
+    </div>
   )
 }
 
