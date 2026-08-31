@@ -420,12 +420,6 @@ body.menu-open {
 .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .work__preview,
 .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__cta,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__frame,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__tagline,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .logo-reveal__contact,
 .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .logo-reveal__footer-bar {
@@ -452,12 +446,6 @@ body.menu-open {
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .work__preview,
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__cta,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__frame,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__tagline,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .logo-reveal__contact,
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .logo-reveal__footer-bar {
@@ -465,9 +453,7 @@ body.menu-open {
 }
 
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__frame {
+  .display-lg {
   animation-name: nxwHeroLikeTitleRise;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -482,15 +468,11 @@ body.menu-open {
   animation-delay: 0.32s;
 }
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__frame {
+  .display-lg {
   animation-delay: 0.42s;
 }
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .text-body,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__tagline {
+  .text-body {
   animation-delay: 0.82s;
 }
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
@@ -539,8 +521,6 @@ body.menu-open {
   .work__preview {
   animation-delay: 1.04s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__cta,
 .depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
   .logo-reveal__contact {
   animation-delay: 1.12s;
@@ -595,8 +575,6 @@ body.menu-open {
     height: auto;
     min-height: 100vh;
     pointer-events: auto;
-    content-visibility: auto;
-    contain-intrinsic-size: 100vh;
   }
 
   .scroll-container > .depth-section {
@@ -634,12 +612,6 @@ body.menu-open {
     .work__project,
   .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
     .work__preview,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .work__cta,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .logo-reveal__frame,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .logo-reveal__tagline,
   .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
     .logo-reveal__contact,
   .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)

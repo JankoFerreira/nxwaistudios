@@ -98,10 +98,6 @@ export default function WorkSection() {
   const [active, setActive] = useState(0)
   const sectionRef = useRef(null)
 
-  const scrollToContact = () => {
-    window._nxwScrollToSection?.('contact')
-  }
-
   const openProject = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
@@ -268,20 +264,6 @@ export default function WorkSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="work__cta">
-          <p className="text-body" style={{ color: 'var(--white-dim)' }}>
-            Ready to build something extraordinary?
-          </p>
-          <button
-            className="btn btn-primary hoverable"
-            type="button"
-            onClick={scrollToContact}
-            style={{ marginTop: '1rem' }}
-          >
-            Start a Project
-          </button>
         </div>
       </div>
     </section>

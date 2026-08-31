@@ -339,12 +339,6 @@
   animation-delay: calc(var(--i) * -0.32s);
 }
 
-.work__cta {
-  text-align: center;
-  padding: clamp(0.55rem, 1.1vh, 1.2rem) 0 0;
-  border-top: 1px solid var(--border);
-}
-
 @media (max-width: 1024px) {
   .work__layout {
     grid-template-columns: 1fr;

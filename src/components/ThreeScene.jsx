@@ -349,6 +349,7 @@ export default function ThreeScene({ loaded }) {
         finale < 0.5
           ? 4 * finale * finale * finale
           : 1 - Math.pow(-2 * finale + 2, 3) / 2
+      const contactFocus = sectionIndex === 4 && finale < 0.01
       if (torusRef.current) {
         torusRef.current.material.uniforms.uTime.value = t
         torusRef.current.material.uniforms.uAccent.value.lerp(
@@ -370,12 +371,26 @@ export default function ThreeScene({ loaded }) {
           1 +
           sectionIndex * 0.025 +
           (sectionIndex === 3 ? activeWork * 0.015 : 0)
-        torusRef.current.scale.setScalar(
-          ((1 + sp * 0.42) * sectionScale * (1 - finaleEase) +
-            0.68 * finaleEase) *
+        const contactScale = isSmall ? 0.58 : 0.92
+        const targetScale = contactFocus
+          ? contactScale
+          : ((1 + sp * 0.42) * sectionScale * (1 - finaleEase) +
+              0.68 * finaleEase) *
             mobileSceneScale
+        torusRef.current.scale.setScalar(
+          torusRef.current.scale.x +
+            (targetScale - torusRef.current.scale.x) * 0.08
         )
-        torusRef.current.visible = sp < 0.35 || finale > 0.01
+        const torusX = contactFocus ? (isSmall ? 0.2 : 2.45) : 0
+        const torusY = contactFocus ? (isSmall ? 0.45 : -0.1) : 0
+        const torusZ = contactFocus ? -0.65 : 0
+        torusRef.current.position.x +=
+          (torusX - torusRef.current.position.x) * 0.08
+        torusRef.current.position.y +=
+          (torusY - torusRef.current.position.y) * 0.08
+        torusRef.current.position.z +=
+          (torusZ - torusRef.current.position.z) * 0.08
+        torusRef.current.visible = sp < 0.35 || contactFocus || finale > 0.01
       }
       if (torusEdgeRef.current) {
         torusEdgeRef.current.material.opacity = 0.07
@@ -408,9 +423,14 @@ export default function ThreeScene({ loaded }) {
       const scrollCamY =
         Math.sin(sp * Math.PI * 2.2) * 1.4 - sp * 3 + mouseRef.current.y * 0.1
       const scrollCamZ = 6 - sp * 72 + Math.sin(sp * Math.PI * 2) * 2.4
-      const camX = scrollCamX * (1 - finaleEase)
-      const camY = scrollCamY * (1 - finaleEase)
-      const camZ = scrollCamZ * (1 - finaleEase) + 6.2 * finaleEase
+      const contactCamX = isSmall ? 0.15 : 1.85
+      const contactCamY = isSmall ? 0.25 : -0.05
+      const contactCamZ = isSmall ? 6.2 : 5.75
+      const camX = contactFocus ? contactCamX : scrollCamX * (1 - finaleEase)
+      const camY = contactFocus ? contactCamY : scrollCamY * (1 - finaleEase)
+      const camZ = contactFocus
+        ? contactCamZ
+        : scrollCamZ * (1 - finaleEase) + 6.2 * finaleEase
 
       targetCamRef.current.x += (camX - targetCamRef.current.x) * 0.04
       targetCamRef.current.y += (camY - targetCamRef.current.y) * 0.06

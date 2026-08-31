@@ -4,7 +4,6 @@ import './LogoReveal.css'
 
 export default function LogoReveal() {
   const sectionRef = useRef(null)
-  const logoRef = useRef(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -18,54 +17,49 @@ export default function LogoReveal() {
           function animateLogo() {
             const tl = gsap.timeline()
 
-            tl.from('.logo-reveal__letter', {
-              opacity: 0,
-              y: 34,
-              stagger: 0.15,
-              duration: 0.7,
-              ease: 'power3.out',
-            })
-
             tl.from(
-              '.logo-reveal__tagline span',
+              '.logo-reveal__eyebrow, .logo-reveal__title-line',
               {
                 opacity: 0,
-                y: 20,
-                stagger: 0.05,
-                duration: 0.6,
+                y: 42,
+                stagger: 0.08,
+                duration: 0.8,
+                ease: 'power3.out',
               },
-              '-=0.5'
+              0
             )
 
             tl.from(
-              '.logo-reveal__underline',
-              {
-                scaleX: 0,
-                duration: 1.2,
-                ease: 'power3.inOut',
-              },
-              '-=0.8'
-            )
-
-            tl.from(
-              '.logo-reveal__footer',
+              '.logo-reveal__sub, .logo-reveal__signal',
               {
                 opacity: 0,
-                y: 30,
+                y: 24,
                 stagger: 0.1,
-                duration: 0.6,
+                duration: 0.7,
               },
-              '-=0.4'
+              '-=0.35'
             )
 
             tl.from(
               '.logo-reveal__contact',
               {
                 opacity: 0,
-                y: 30,
-                duration: 0.8,
+                y: 28,
+                duration: 0.75,
+                ease: 'power3.out',
               },
-              '-=0.4'
+              '-=0.35'
+            )
+
+            tl.from(
+              '.logo-reveal__footer',
+              {
+                opacity: 0,
+                y: 18,
+                stagger: 0.1,
+                duration: 0.55,
+              },
+              '-=0.25'
             )
           }
           animateLogo()
@@ -91,67 +85,46 @@ export default function LogoReveal() {
     >
       <div className="logo-reveal__bg" />
 
-      {/* Main logo */}
       <div className="logo-reveal__content">
-        <div className="logo-reveal__logo-wrap" ref={logoRef}>
-          {/* Corner frames */}
-          <div className="logo-reveal__frame">
-            <span className="logo-reveal__corner logo-reveal__corner--tl" />
-            <span className="logo-reveal__corner logo-reveal__corner--tr" />
-            <span className="logo-reveal__corner logo-reveal__corner--bl" />
-            <span className="logo-reveal__corner logo-reveal__corner--br" />
-
-            <div className="logo-reveal__letters">
-              {'NXW'.split('').map((l, i) => (
-                <span
-                  key={i}
-                  className="logo-reveal__letter"
-                  data-letter={l}
-                  style={{ '--i': i }}
-                >
-                  {l}
-                </span>
-              ))}
-            </div>
-
-            <div className="logo-reveal__underline">
-              <div className="logo-reveal__underline-inner" />
-            </div>
-          </div>
-
-          <div className="logo-reveal__tagline">
-            <span>NEXWEB AI STUDIOS</span>
-          </div>
-
+        <div className="logo-reveal__copy">
+          <span className="logo-reveal__eyebrow tag">Final Frame</span>
+          <h2 className="logo-reveal__title">
+            <span className="logo-reveal__title-line">Let&apos;s build</span>
+            <span className="logo-reveal__title-line grad-cyan">
+              a web presence
+            </span>
+            <span className="logo-reveal__title-line grad-purple">
+              people remember.
+            </span>
+          </h2>
           <p className="logo-reveal__sub text-body">
-            Building the future of digital experience.
-            <br />
-            One pixel. One neuron. One world at a time.
+            If your brand needs more than a template, NXW can shape the concept,
+            interface, motion, and AI layer into one focused digital experience.
           </p>
+          <div className="logo-reveal__signals" aria-label="Project strengths">
+            {['3D Web', 'AI Interfaces', 'Motion Systems'].map((signal) => (
+              <span className="logo-reveal__signal" key={signal}>
+                {signal}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Contact / CTA */}
         <div className="logo-reveal__contact">
           <div className="logo-reveal__contact-inner">
             <div className="logo-reveal__contact-col">
-              <span
-                className="text-mono"
-                style={{ color: 'var(--cyan)', fontSize: '0.65rem' }}
-              >
+              <span className="logo-reveal__contact-label text-mono">
                 READY TO BUILD?
               </span>
-              <h3
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                  fontWeight: 700,
-                  marginTop: '0.5rem',
-                }}
-              >
-                Let&apos;s Create
+              <h3 className="logo-reveal__contact-title">
+                Start with a clear idea.
                 <br />
-                <span className="grad-full">Something Legendary</span>
+                <span className="grad-full">Leave with a living site.</span>
               </h3>
+              <p className="logo-reveal__contact-note text-body">
+                Send the rough version, the polished brief, or just the spark.
+                We can turn it into a concrete direction.
+              </p>
             </div>
             <div className="logo-reveal__contact-actions">
               <button
@@ -183,26 +156,16 @@ export default function LogoReveal() {
           </div>
         </div>
 
-        {/* Footer */}
         <footer className="logo-reveal__footer-bar">
           <div className="logo-reveal__footer">
-            <span
-              className="text-mono"
-              style={{ fontSize: '0.65rem', color: 'var(--white-dim)' }}
-            >
+            <span className="logo-reveal__footer-item text-mono">
               (c) 2026 NexWeb AI Studios. All rights reserved.
             </span>
-            <span
-              className="text-mono"
-              style={{ fontSize: '0.65rem', color: 'var(--white-dim)' }}
-            >
+            <span className="logo-reveal__footer-item text-mono">
               Johannesburg / Cape Town / Global
             </span>
-            <span
-              className="text-mono"
-              style={{ fontSize: '0.65rem', color: 'var(--white-dim)' }}
-            >
-              Built with Three.js and heart
+            <span className="logo-reveal__footer-item text-mono">
+              Same world. Sharper ending.
             </span>
           </div>
         </footer>
