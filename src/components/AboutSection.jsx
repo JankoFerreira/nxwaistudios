@@ -92,20 +92,21 @@ export default function AboutSection() {
             <div className="about__line-inner" />
           </div>
           <h2 className="about__heading display-lg">
-            Where <span className="grad-cyan">AI</span> meets
+            Where <span className="grad-cyan">AI</span> supports
             <br />
-            the <span className="grad-purple">Impossible</span>
+            better <span className="grad-purple">web design</span>
           </h2>
           <div className="about__body">
             <p className="text-body">
-              NexWeb AI Studios is a next-generation creative technology studio
-              operating at the intersection of artificial intelligence,
-              immersive 3D design, and web engineering.
+              NexWeb AI Studios is a creative technology studio for businesses
+              that want a distinctive, high-performing web presence without the
+              generic agency process.
             </p>
             <p className="text-body">
-              We believe every brand deserves a digital presence that does not
-              just look beautiful - it feels alive. Our work blurs the line
-              between digital and physical, between website and world.
+              We shape the concept, design the interface, build the front end,
+              and add AI where it improves the experience. The result is a site
+              that looks memorable, loads quickly, and gives visitors a clear
+              next step.
             </p>
           </div>
           <div className="about__pills">
@@ -121,18 +122,18 @@ export default function AboutSection() {
           {[
             {
               num: '01',
-              title: 'AI-First Thinking',
-              desc: 'Every project starts with intelligence. We integrate AI at the core - from generative visuals to intelligent interfaces.',
+              title: 'Strategy Before Effects',
+              desc: 'Every build starts with the business goal, the audience, and the action the visitor should take next.',
             },
             {
               num: '02',
-              title: '3D + WebGL Mastery',
-              desc: 'We push browsers to their limits. Real-time 3D scenes, particle systems, and shader art that runs in your browser.',
+              title: 'Fast Immersive Design',
+              desc: '3D, motion, and visual systems are tuned to feel premium without slowing the site down.',
             },
             {
               num: '03',
-              title: 'Immersive UX',
-              desc: "Scroll isn't just scrolling here. We craft cinematic journeys where users feel present inside the experience.",
+              title: 'Useful AI Layers',
+              desc: 'AI is added where it helps visitors explore, choose, enquire, or understand the offer faster.',
             },
           ].map((card) => (
             <div className="about__card glass-card hoverable" key={card.num}>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 
-const links = ['About', 'Services', 'Work', 'Contact']
+const links = ['About', 'Services', 'Work', 'Pricing', 'Contact']
 const mobileMenuId = 'site-mobile-menu'
 
 export default function Navbar({ scrollProgress, activeSection }) {
@@ -15,7 +15,7 @@ export default function Navbar({ scrollProgress, activeSection }) {
 
   useEffect(() => {
     const onKeyDown = (event) => {
-      if (event.key !== 'Escape') return
+      if (event.key !== 'Escape' || !menuOpen) return
       setMenuOpen(false)
       burgerRef.current?.focus()
     }

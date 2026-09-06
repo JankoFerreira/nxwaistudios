@@ -9,43 +9,43 @@ const services = [
   {
     id: '01',
     title: 'AI Experience Design',
-    desc: 'Custom AI-powered interfaces and generative experiences. We integrate LLMs, image AI, and real-time ML into interactive web products.',
+    desc: 'Custom AI-assisted interfaces, lead flows, and interactive tools that help visitors get to the right answer faster.',
     tags: ['GPT Integration', 'Generative Art', 'ML APIs'],
     color: 'cyan',
   },
   {
     id: '02',
     title: '3D Web Development',
-    desc: 'Real-time 3D scenes built with Three.js and WebGL. From product visualizers to full immersive environments that run in any browser.',
+    desc: 'Real-time 3D scenes built with Three.js and WebGL, from product moments to immersive brand environments.',
     tags: ['Three.js', 'WebGL', 'GLSL Shaders'],
     color: 'purple',
   },
   {
     id: '03',
     title: 'Immersive Web Apps',
-    desc: 'Scroll-driven cinematic websites, interactive portals, and digital installations that make users feel inside the product.',
+    desc: 'Scroll-led sites, interactive portals, and launch pages that guide visitors through the story with purpose.',
     tags: ['GSAP', 'Lenis', 'Canvas'],
     color: 'cyan',
   },
   {
     id: '04',
     title: 'Brand Identity & Motion',
-    desc: 'Visual identity systems built for the digital age - logos that animate, brand books that breathe, motion design that moves culture.',
+    desc: 'Visual systems, animated marks, and motion rules that make a brand feel consistent across the modern web.',
     tags: ['Motion Design', 'Brand Systems', 'After Effects'],
     color: 'purple',
   },
   {
     id: '05',
     title: 'Full-Stack Engineering',
-    desc: 'From database architecture to CDN edge functions - we build robust, scalable systems to power extraordinary front-end experiences.',
+    desc: 'Robust web builds, integrations, and hosting foundations that keep the experience stable after launch.',
     tags: ['React', 'Node.js', 'Supabase'],
     color: 'cyan',
   },
   {
     id: '06',
-    title: 'XR & Spatial Web',
-    desc: 'WebXR experiences, AR product try-ons, and spatial computing interfaces for the next generation of the web.',
-    tags: ['WebXR', 'Three.js', 'A-Frame'],
+    title: 'Launch & Optimization',
+    desc: 'Performance tuning, SEO basics, analytics readiness, and practical improvements after the first version goes live.',
+    tags: ['Performance', 'SEO', 'Analytics'],
     color: 'purple',
   },
 ]
@@ -122,8 +122,8 @@ export default function ServicesSection() {
             className="text-body"
             style={{ maxWidth: '500px', marginTop: '1rem' }}
           >
-            A full-service creative technology studio. We handle everything -
-            strategy, design, engineering, and AI integration.
+            Strategy, design, engineering, and AI integration for brands that
+            want a site people can remember and use with ease.
           </p>
         </div>
 

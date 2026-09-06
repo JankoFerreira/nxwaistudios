@@ -41,28 +41,28 @@ export default function HeroSection() {
       <div className="grid-bg" />
       <div className="hero__inner">
         <div className="hero__tag tag">
-          <span>Next Gen AI Studio</span>
+          <span>AI Web Studio</span>
         </div>
 
         <h1 className="hero__title display-xl">
           <div className="hero__title-line">
-            <span>We Build</span>
+            <span>Websites</span>
           </div>
           <div className="hero__title-line">
-            <span className="grad-cyan">Immersive</span>
+            <span className="grad-cyan">That Feel</span>
           </div>
           <div className="hero__title-line">
-            <span>Digital</span>
+            <span>Alive</span>
           </div>
           <div className="hero__title-line">
-            <span className="grad-purple">Realities</span>
+            <span className="grad-purple">Online</span>
           </div>
         </h1>
 
         <p className="hero__sub text-body" style={{ maxWidth: '480px' }}>
-          NexWeb AI Studios designs expressive web experiences where sharp
-          interface design, useful AI, and cinematic 3D come together. We build
-          websites that feel alive.
+          NexWeb AI Studios designs fast, cinematic websites for brands that
+          need more than a template. We combine sharp interface design, useful
+          AI, and immersive 3D into focused digital experiences.
         </p>
 
         <div className="hero__actions">

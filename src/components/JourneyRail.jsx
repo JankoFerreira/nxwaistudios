@@ -3,9 +3,10 @@ import './JourneyRail.css'
 const stops = [
   { id: 'hero', label: 'Enter', progress: 0 },
   { id: 'about', label: 'About', progress: 0.2 },
-  { id: 'services', label: 'Services', progress: 0.43 },
-  { id: 'work', label: 'Work', progress: 0.66 },
-  { id: 'contact', label: 'Contact', progress: 0.9 },
+  { id: 'services', label: 'Services', progress: 0.4 },
+  { id: 'work', label: 'Work', progress: 0.6 },
+  { id: 'pricing', label: 'Pricing', progress: 0.8 },
+  { id: 'contact', label: 'Contact', progress: 1 },
 ]
 
 export default function JourneyRail({ scrollProgress }) {

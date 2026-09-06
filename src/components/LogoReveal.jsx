@@ -87,26 +87,27 @@ export default function LogoReveal() {
 
       <div className="logo-reveal__content">
         <div className="logo-reveal__copy">
-          <span className="logo-reveal__eyebrow tag">Final Frame</span>
+          <span className="logo-reveal__eyebrow tag">Start the Build</span>
           <h2 className="logo-reveal__title">
-            <span className="logo-reveal__title-line">Let&apos;s build</span>
-            <span className="logo-reveal__title-line grad-cyan">
-              a web presence
-            </span>
+            <span className="logo-reveal__title-line">Build sites</span>
+            <span className="logo-reveal__title-line grad-cyan">people</span>
             <span className="logo-reveal__title-line grad-purple">
-              people remember.
+              remember.
             </span>
           </h2>
           <p className="logo-reveal__sub text-body">
-            If your brand needs more than a template, NXW can shape the concept,
-            interface, motion, and AI layer into one focused digital experience.
+            If your brand needs more than a template, NXW can help shape the
+            concept, interface, motion, and AI layer into one focused digital
+            experience.
           </p>
           <div className="logo-reveal__signals" aria-label="Project strengths">
-            {['3D Web', 'AI Interfaces', 'Motion Systems'].map((signal) => (
-              <span className="logo-reveal__signal" key={signal}>
-                {signal}
-              </span>
-            ))}
+            {['Fast Delivery', '3D Web', 'AI Interfaces', 'Motion Systems'].map(
+              (signal) => (
+                <span className="logo-reveal__signal" key={signal}>
+                  {signal}
+                </span>
+              )
+            )}
           </div>
         </div>
 
@@ -117,14 +118,22 @@ export default function LogoReveal() {
                 READY TO BUILD?
               </span>
               <h3 className="logo-reveal__contact-title">
-                Start with a clear idea.
+                Start with the rough idea.
                 <br />
-                <span className="grad-full">Leave with a living site.</span>
+                <span className="grad-full">
+                  Leave with a site ready to launch.
+                </span>
               </h3>
               <p className="logo-reveal__contact-note text-body">
                 Send the rough version, the polished brief, or just the spark.
-                We can turn it into a concrete direction.
+                We will turn it into a clear plan, a sharp interface, and a site
+                ready to grow with the business.
               </p>
+              <ul className="logo-reveal__brief-list">
+                <li>Brand goal</li>
+                <li>Pages needed</li>
+                <li>Launch timeline</li>
+              </ul>
             </div>
             <div className="logo-reveal__contact-actions">
               <button
@@ -165,7 +174,7 @@ export default function LogoReveal() {
               Johannesburg / Cape Town / Global
             </span>
             <span className="logo-reveal__footer-item text-mono">
-              Same world. Sharper ending.
+              Built for speed, clarity, and recall.
             </span>
           </div>
         </footer>

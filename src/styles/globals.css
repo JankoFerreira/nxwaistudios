@@ -19,8 +19,8 @@
   --font-display: 'Syne', sans-serif;
   --font-mono: 'DM Mono', monospace;
   --font-body: 'Space Grotesk', sans-serif;
-  --section-content-scale: 0.8;
-  --section-content-y: 4vh;
+  --section-content-scale: 1;
+  --section-content-y: 2vh;
 }
 
 *,
@@ -34,6 +34,7 @@
 html {
   font-size: 16px;
   scroll-behavior: auto;
+  scroll-padding-top: 6.25rem;
 }
 
 body {
@@ -180,7 +181,7 @@ body.menu-open {
 }
 
 .scroll-spacer {
-  height: 760vh;
+  height: 600vh;
   pointer-events: none;
 }
 
@@ -282,6 +283,7 @@ body.menu-open {
 .about__inner,
 .services__inner,
 .work__inner,
+.pricing__inner,
 .logo-reveal__content {
   transform: scale(var(--section-content-scale));
   translate: 0 var(--section-content-y);
@@ -291,8 +293,9 @@ body.menu-open {
 .about__inner,
 .services__inner,
 .work__inner,
+.pricing__inner,
 .logo-reveal__content {
-  width: min(1600px, 112vw);
+  width: min(1900px, calc(100vw - 2rem));
 }
 
 .scroll-container > .depth-section {
@@ -330,61 +333,6 @@ body.menu-open {
   opacity: 1;
 }
 
-.depth-section--finale {
-  border: 1px solid rgba(0, 245, 255, 0.2);
-  background: rgba(8, 12, 20, 0.72);
-  box-shadow:
-    0 0 34px rgba(0, 245, 255, 0.08),
-    inset 0 0 42px rgba(168, 85, 247, 0.08);
-  overflow: hidden;
-}
-
-.depth-section--finale > * {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.depth-section--finale::before {
-  content: attr(data-finale-label);
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  padding: 8vh 5vw;
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 8vw, 6.8rem);
-  font-weight: 800;
-  line-height: 1;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  white-space: nowrap;
-  text-shadow:
-    0 0 42px rgba(0, 245, 255, 0.42),
-    0 0 80px rgba(168, 85, 247, 0.26);
-}
-
-.logo-reveal.depth-section--finale {
-  background: transparent;
-}
-
-.logo-reveal.depth-section--contact-return {
-  border-color: transparent;
-  background: var(--bg);
-  box-shadow: none;
-  filter: none;
-}
-
-.logo-reveal.depth-section--contact-return > * {
-  opacity: 1;
-  visibility: visible;
-}
-
-.logo-reveal.depth-section--contact-return::before {
-  content: none;
-}
-
 .depth-section::after {
   content: '';
   position: absolute;
@@ -402,131 +350,92 @@ body.menu-open {
   transform: scale(calc(1 + var(--arc-pulse) * 0.016));
 }
 
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale) .tag,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .text-body,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .glass-card,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__line,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__pill,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__project,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__preview,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__contact,
-.depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__footer-bar {
+.depth-section:not(.hero):not(.logo-reveal) .tag,
+.depth-section:not(.hero):not(.logo-reveal) .display-lg,
+.depth-section:not(.hero):not(.logo-reveal) .text-body,
+.depth-section:not(.hero):not(.logo-reveal) .glass-card,
+.depth-section:not(.hero):not(.logo-reveal) .about__line,
+.depth-section:not(.hero):not(.logo-reveal) .about__pill,
+.depth-section:not(.hero):not(.logo-reveal) .service-item,
+.depth-section:not(.hero):not(.logo-reveal) .work__project,
+.depth-section:not(.hero):not(.logo-reveal) .work__preview,
+.depth-section:not(.hero):not(.logo-reveal) .logo-reveal__contact,
+.depth-section:not(.hero):not(.logo-reveal) .logo-reveal__footer-bar {
   opacity: 0;
   transform: translate3d(0, 30px, 0);
 }
 
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .tag,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .text-body,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .glass-card,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__line,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__pill,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__project,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__preview,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__contact,
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__footer-bar {
+.depth-section--active:not(.hero):not(.logo-reveal) .tag,
+.depth-section--active:not(.hero):not(.logo-reveal) .display-lg,
+.depth-section--active:not(.hero):not(.logo-reveal) .text-body,
+.depth-section--active:not(.hero):not(.logo-reveal) .glass-card,
+.depth-section--active:not(.hero):not(.logo-reveal) .about__line,
+.depth-section--active:not(.hero):not(.logo-reveal) .about__pill,
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item,
+.depth-section--active:not(.hero):not(.logo-reveal) .work__project,
+.depth-section--active:not(.hero):not(.logo-reveal) .work__preview,
+.depth-section--active:not(.hero):not(.logo-reveal) .logo-reveal__contact,
+.depth-section--active:not(.hero):not(.logo-reveal) .logo-reveal__footer-bar {
   animation: nxwHeroLikeRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg {
+.depth-section--active:not(.hero):not(.logo-reveal) .display-lg {
   animation-name: nxwHeroLikeTitleRise;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .tag {
+.depth-section--active:not(.hero):not(.logo-reveal) .tag {
   animation-delay: 0.2s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__line {
+.depth-section--active:not(.hero):not(.logo-reveal) .about__line {
   animation-delay: 0.32s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .display-lg {
+.depth-section--active:not(.hero):not(.logo-reveal) .display-lg {
   animation-delay: 0.42s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .text-body {
+.depth-section--active:not(.hero):not(.logo-reveal) .text-body {
   animation-delay: 0.82s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .about__pill {
+.depth-section--active:not(.hero):not(.logo-reveal) .about__pill {
   animation-delay: 1s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .glass-card:nth-child(1),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(1),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
+.depth-section--active:not(.hero):not(.logo-reveal) .glass-card:nth-child(1),
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(1),
+.depth-section--active:not(.hero):not(.logo-reveal)
   .work__project:nth-child(1) {
   animation-delay: 0.94s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .glass-card:nth-child(2),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(2),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
+.depth-section--active:not(.hero):not(.logo-reveal) .glass-card:nth-child(2),
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(2),
+.depth-section--active:not(.hero):not(.logo-reveal)
   .work__project:nth-child(2) {
   animation-delay: 1.04s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .glass-card:nth-child(3),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(3),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
+.depth-section--active:not(.hero):not(.logo-reveal) .glass-card:nth-child(3),
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(3),
+.depth-section--active:not(.hero):not(.logo-reveal)
   .work__project:nth-child(3) {
   animation-delay: 1.14s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(4),
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(4),
+.depth-section--active:not(.hero):not(.logo-reveal)
   .work__project:nth-child(4) {
   animation-delay: 1.24s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(5) {
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(5) {
   animation-delay: 1.34s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .service-item:nth-child(6) {
+.depth-section--active:not(.hero):not(.logo-reveal) .service-item:nth-child(6) {
   animation-delay: 1.44s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .work__preview {
+.depth-section--active:not(.hero):not(.logo-reveal) .work__preview {
   animation-delay: 1.04s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__contact {
+.depth-section--active:not(.hero):not(.logo-reveal) .logo-reveal__contact {
   animation-delay: 1.12s;
 }
-.depth-section--active:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-  .logo-reveal__footer-bar {
+.depth-section--active:not(.hero):not(.logo-reveal) .logo-reveal__footer-bar {
   animation-delay: 1.28s;
 }
 
@@ -552,7 +461,7 @@ body.menu-open {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
   :root {
     --section-content-scale: 1;
     --section-content-y: 0;
@@ -573,7 +482,8 @@ body.menu-open {
   .section {
     position: relative;
     height: auto;
-    min-height: 100vh;
+    min-height: 100svh;
+    align-items: flex-start;
     pointer-events: auto;
   }
 
@@ -581,7 +491,7 @@ body.menu-open {
     position: relative;
     inset: auto;
     height: auto;
-    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .depth-section {
@@ -595,27 +505,17 @@ body.menu-open {
     transform: none;
   }
 
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale) .tag,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .display-lg,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .text-body,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .glass-card,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .about__line,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .about__pill,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .service-item,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .work__project,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .work__preview,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .logo-reveal__contact,
-  .depth-section:not(.hero):not(.logo-reveal):not(.depth-section--finale)
-    .logo-reveal__footer-bar {
+  .depth-section:not(.hero):not(.logo-reveal) .tag,
+  .depth-section:not(.hero):not(.logo-reveal) .display-lg,
+  .depth-section:not(.hero):not(.logo-reveal) .text-body,
+  .depth-section:not(.hero):not(.logo-reveal) .glass-card,
+  .depth-section:not(.hero):not(.logo-reveal) .about__line,
+  .depth-section:not(.hero):not(.logo-reveal) .about__pill,
+  .depth-section:not(.hero):not(.logo-reveal) .service-item,
+  .depth-section:not(.hero):not(.logo-reveal) .work__project,
+  .depth-section:not(.hero):not(.logo-reveal) .work__preview,
+  .depth-section:not(.hero):not(.logo-reveal) .logo-reveal__contact,
+  .depth-section:not(.hero):not(.logo-reveal) .logo-reveal__footer-bar {
     opacity: 1;
     transform: none;
     clip-path: none;
@@ -624,17 +524,17 @@ body.menu-open {
   }
 }
 
-@media (max-height: 820px) and (min-width: 769px) {
+@media (max-height: 900px) and (min-width: 1025px) and (min-height: 651px) {
   :root {
-    --section-content-scale: 0.72;
-    --section-content-y: 5vh;
+    --section-content-scale: 0.84;
+    --section-content-y: 3.5vh;
   }
 }
 
-@media (max-height: 700px) and (min-width: 769px) {
+@media (max-height: 780px) and (min-width: 1025px) and (min-height: 651px) {
   :root {
-    --section-content-scale: 0.66;
-    --section-content-y: 6vh;
+    --section-content-scale: 0.72;
+    --section-content-y: 5vh;
   }
 }
 
@@ -644,7 +544,7 @@ body.menu-open {
   font-size: clamp(3.5rem, 10vw, 9rem);
   font-weight: 800;
   line-height: 0.9;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .display-lg {
@@ -652,7 +552,7 @@ body.menu-open {
   font-size: clamp(2.5rem, 6vw, 6rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .display-md {
@@ -921,5 +821,139 @@ body.menu-open {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Keep text readable and columns within their available width. */
+.about__inner > *,
+.work__layout > *,
+.pricing__inner > *,
+.logo-reveal__content > * {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.work__project-title {
+  line-height: 1.2;
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .hero__inner,
+  .about__inner,
+  .services__inner,
+  .work__inner,
+  .pricing__inner,
+  .logo-reveal__content {
+    width: min(1900px, calc(100vw - 2rem));
+    transform: none;
+    translate: none;
+    scale: 1;
+  }
+
+  .section {
+    scroll-margin-top: 6.25rem;
+  }
+
+  .hero {
+    padding-block: 7rem 4.5rem;
+  }
+
+  .hero__inner {
+    padding-top: 0;
+    gap: 1.25rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.2rem, 6.6vw, 4.8rem);
+  }
+
+  .about,
+  .services,
+  .work,
+  .pricing {
+    padding-block: 6rem 4.5rem;
+  }
+
+  .about__inner {
+    gap: 2rem;
+  }
+
+  .services__inner,
+  .work__inner,
+  .pricing__inner {
+    gap: 2rem;
+  }
+
+  .work__layout,
+  .logo-reveal__content {
+    align-items: start;
+  }
+
+  .service-item {
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .service-item__desc,
+  .work__preview-info .text-body,
+  .work__project-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .service-item__tag,
+  .work__tech-stack span,
+  .work__project-stack span {
+    font-size: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .work__project--active .work__project-desc,
+  .work__project--active .work__project-stack {
+    max-height: none;
+  }
+
+  .work__project {
+    padding: 1.25rem;
+  }
+
+  .journey-rail,
+  .hero__scroll-hint,
+  .hero__deco {
+    display: none;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 1025px) and (min-height: 651px) {
+  :root {
+    --section-content-scale: 0.79;
+    --section-content-y: 4vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .service-item:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-item:nth-child(n) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-item:last-child {
+    border-bottom: none;
+  }
+
+  .logo-reveal__title {
+    font-size: clamp(2rem, 8.4vw, 3.7rem);
   }
 }

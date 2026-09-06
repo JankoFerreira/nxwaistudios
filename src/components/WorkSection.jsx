@@ -136,6 +136,10 @@ export default function WorkSection() {
           <h2 className="display-lg" style={{ marginTop: '1.5rem' }}>
             Case <span className="grad-purple">Studies</span>
           </h2>
+          <p className="work__intro text-body">
+            A small selection of practical builds, from service businesses to
+            community platforms and product-led brand sites.
+          </p>
         </div>
 
         <div className="work__layout">
@@ -145,6 +149,19 @@ export default function WorkSection() {
                 key={proj.id}
                 className={`work__project hoverable ${active === i ? 'work__project--active' : ''}`}
                 onMouseEnter={() => setActiveProject(i)}
+                onClick={() => setActiveProject(i)}
+                onFocus={() => setActiveProject(i)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    setActiveProject(i)
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-pressed={active === i}
+                aria-label={`Preview ${proj.title}`}
+                aria-controls="work-preview"
                 style={{ '--accent': proj.color }}
               >
                 <div className="work__project-inner">
@@ -197,7 +214,7 @@ export default function WorkSection() {
             ))}
           </div>
 
-          <div className="work__preview">
+          <div className="work__preview" id="work-preview">
             <div className="work__preview-inner">
               <div
                 className="work__preview-visual"

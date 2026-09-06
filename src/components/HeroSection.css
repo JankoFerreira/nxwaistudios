@@ -1,24 +1,24 @@
 .hero {
   min-height: 100vh;
-  padding: 0 2.5rem;
+  padding: 0 clamp(1rem, 2.4vw, 3rem);
   position: relative;
   overflow: hidden;
 }
 
 .hero__inner {
-  max-width: 1400px;
+  max-width: 1900px;
   margin: 0 auto;
   padding-top: clamp(4rem, 10vh, 7rem);
   display: flex;
   flex-direction: column;
   gap: clamp(0.8rem, 1.6vh, 1.45rem);
-  scale: 0.92;
-  translate: 0 -2vh;
+  scale: 1;
+  translate: 0 -1vh;
 }
 
 @media (min-width: 769px) {
   .hero__inner {
-    width: min(1400px, 112vw);
+    width: min(1900px, calc(100vw - 2rem));
   }
 }
 
@@ -116,8 +116,8 @@
   }
 
   .hero .hero__title {
-    font-size: clamp(1.72rem, 7.9vw, 2.2rem);
-    max-width: 20rem;
+    font-size: clamp(2.15rem, 11vw, 3.7rem);
+    max-width: min(23rem, 100%);
   }
 
   .hero .hero__title-line {
@@ -125,7 +125,7 @@
   }
 
   .hero__sub {
-    max-width: 21rem;
+    max-width: 23rem;
     font-size: 0.98rem;
     line-height: 1.55;
   }
@@ -136,7 +136,8 @@
   }
 
   .hero__actions .btn {
-    padding: 0.78rem 1rem;
+    min-height: 2.9rem;
+    padding: 0.78rem 0.95rem;
     font-size: 0.66rem;
   }
 

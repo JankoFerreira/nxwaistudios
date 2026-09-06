@@ -93,6 +93,7 @@ export default function ThreeScene({ loaded }) {
       new THREE.Color(0x9bd8ff),
       new THREE.Color(0x8ff0c8),
       new THREE.Color(0xffb86b),
+      new THREE.Color(0xa855f7),
       new THREE.Color(0xd7f8ff),
     ]
     const workPalette = [
@@ -332,7 +333,7 @@ export default function ThreeScene({ loaded }) {
       const finale = window._nxwFinaleProgress || 0
       const sectionIndex = Math.max(
         0,
-        Math.min(4, window._nxwActiveSectionIndex || 0)
+        Math.min(5, window._nxwActiveSectionIndex || 0)
       )
       const activeWork = Math.max(0, Math.min(3, window._nxwActiveWork || 0))
       const sectionAccent =
@@ -349,7 +350,7 @@ export default function ThreeScene({ loaded }) {
         finale < 0.5
           ? 4 * finale * finale * finale
           : 1 - Math.pow(-2 * finale + 2, 3) / 2
-      const contactFocus = sectionIndex === 4 && finale < 0.01
+      const contactFocus = sectionIndex === 5 && finale < 0.01
       if (torusRef.current) {
         torusRef.current.material.uniforms.uTime.value = t
         torusRef.current.material.uniforms.uAccent.value.lerp(
@@ -381,8 +382,8 @@ export default function ThreeScene({ loaded }) {
           torusRef.current.scale.x +
             (targetScale - torusRef.current.scale.x) * 0.08
         )
-        const torusX = contactFocus ? (isSmall ? 0.2 : 2.45) : 0
-        const torusY = contactFocus ? (isSmall ? 0.45 : -0.1) : 0
+        const torusX = contactFocus ? 0 : 0
+        const torusY = contactFocus ? (isSmall ? 0.3 : 0) : 0
         const torusZ = contactFocus ? -0.65 : 0
         torusRef.current.position.x +=
           (torusX - torusRef.current.position.x) * 0.08
@@ -423,8 +424,8 @@ export default function ThreeScene({ loaded }) {
       const scrollCamY =
         Math.sin(sp * Math.PI * 2.2) * 1.4 - sp * 3 + mouseRef.current.y * 0.1
       const scrollCamZ = 6 - sp * 72 + Math.sin(sp * Math.PI * 2) * 2.4
-      const contactCamX = isSmall ? 0.15 : 1.85
-      const contactCamY = isSmall ? 0.25 : -0.05
+      const contactCamX = 0
+      const contactCamY = isSmall ? 0.2 : 0
       const contactCamZ = isSmall ? 6.2 : 5.75
       const camX = contactFocus ? contactCamX : scrollCamX * (1 - finaleEase)
       const camY = contactFocus ? contactCamY : scrollCamY * (1 - finaleEase)

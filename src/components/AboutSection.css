@@ -1,15 +1,15 @@
 .about {
-  padding: clamp(4.5rem, 8vh, 8rem) 2.5rem;
+  padding: clamp(4.5rem, 8vh, 8rem) clamp(1rem, 2.4vw, 3rem);
   position: relative;
   overflow: hidden;
 }
 
 .about__inner {
-  max-width: 1400px;
+  max-width: 1900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2.5rem, 5vw, 6rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(3rem, 6vw, 8rem);
   align-items: start;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .about__card {
-  padding: clamp(1rem, 2vh, 1.75rem);
+  padding: clamp(1.2rem, 2.3vh, 2rem);
   position: relative;
   overflow: hidden;
   transition:
