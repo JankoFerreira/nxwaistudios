@@ -23,7 +23,7 @@ const websitePackages = [
       'A tailored website or digital experience where pricing depends on the size, features, and timeline.',
     points: [
       '3D or motion system',
-      'AI feature planning',
+      'Feature planning',
       'Custom integrations',
     ],
   },
@@ -47,18 +47,14 @@ const carePackages = [
     price: 'R1,500 - R2,500 / month',
     detail:
       'For brands that need regular design, content, and feature support.',
-    points: [
-      'Monthly improvement sprint',
-      'Design updates',
-      'AI and automation support',
-    ],
+    points: ['Monthly improvement sprint', 'Design updates', 'Feature support'],
   },
 ]
 
-const aiIdeas = [
-  'AI enquiry assistant',
+const futureIdeas = [
+  'Quote intake flow',
   'Smart quote intake',
-  'Content drafting tools',
+  'Content update system',
   'Client onboarding flows',
 ]
 
@@ -133,14 +129,13 @@ export default function PricingSection() {
             </div>
 
             <div className="pricing__ai glass-card">
-              <span className="text-mono">AI Suggestions</span>
+              <span className="text-mono">Future Upgrades</span>
               <p>
-                AI should make the website more useful, not just sound
-                futuristic. These are the strongest starting features for NXW
-                clients.
+                Start with the website your business needs now, then add
+                practical features when there is a clear reason to expand.
               </p>
               <div className="pricing__ai-tags">
-                {aiIdeas.map((idea) => (
+                {futureIdeas.map((idea) => (
                   <span key={idea}>{idea}</span>
                 ))}
               </div>

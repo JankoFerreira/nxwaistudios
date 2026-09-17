@@ -301,9 +301,10 @@
   }
 }
 
-@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+@media (max-width: 1024px), (max-height: 650px), (prefers-reduced-motion: reduce) {
   .pricing {
-    padding-block: 6rem 4.5rem;
+    padding-block: clamp(5rem, 10vw, 7rem) clamp(4rem, 8vw, 5.5rem);
+    padding-inline: clamp(1.25rem, 4vw, 2.25rem);
   }
 
   .pricing__inner,

@@ -41,7 +41,7 @@ export default function HeroSection() {
       <div className="grid-bg" />
       <div className="hero__inner">
         <div className="hero__tag tag">
-          <span>AI Web Studio</span>
+          <span>NexWeb Studios</span>
         </div>
 
         <h1 className="hero__title display-xl">
@@ -60,9 +60,9 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero__sub text-body" style={{ maxWidth: '480px' }}>
-          NexWeb AI Studios designs fast, cinematic websites for brands that
-          need more than a template. We combine sharp interface design, useful
-          AI, and immersive 3D into focused digital experiences.
+          NexWeb Studios designs fast, cinematic websites for brands that need
+          more than a template. We combine sharp interface design, purposeful
+          motion, and immersive 3D into focused digital experiences.
         </p>
 
         <div className="hero__actions">

@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger)
 const services = [
   {
     id: '01',
-    title: 'AI Experience Design',
-    desc: 'Custom AI-assisted interfaces, lead flows, and interactive tools that help visitors get to the right answer faster.',
-    tags: ['GPT Integration', 'Generative Art', 'ML APIs'],
+    title: 'Website Strategy & UX',
+    desc: 'Clear page structure, user flows, and interface decisions that help visitors understand the offer and take action.',
+    tags: ['UX Planning', 'Wireframes', 'Conversion Flow'],
     color: 'cyan',
   },
   {
@@ -88,7 +88,7 @@ export default function ServicesSection() {
     '.',
     'React',
     '.',
-    'AI',
+    'SEO',
     '.',
     'GSAP',
     '.',
@@ -98,7 +98,7 @@ export default function ServicesSection() {
     '.',
     'GLSL',
     '.',
-    'LLMs',
+    'Responsive UI',
     '.',
     'Canvas',
     '.',
@@ -122,8 +122,8 @@ export default function ServicesSection() {
             className="text-body"
             style={{ maxWidth: '500px', marginTop: '1rem' }}
           >
-            Strategy, design, engineering, and AI integration for brands that
-            want a site people can remember and use with ease.
+            Strategy, design, engineering, and motion for brands that want a
+            site people can remember and use with ease.
           </p>
         </div>
 

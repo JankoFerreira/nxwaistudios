@@ -13,12 +13,11 @@ import Loader from './components/Loader'
 const ThreeScene = lazy(() => import('./components/ThreeScene'))
 
 const SECTION_IDS = ['hero', 'about', 'services', 'work', 'pricing', 'contact']
+const FLOW_LAYOUT_QUERY =
+  '(max-width: 1024px), (max-height: 650px), (prefers-reduced-motion: reduce)'
 export default function App() {
   const [flowLayout, setFlowLayout] = useState(
-    () =>
-      window.matchMedia(
-        '(max-width: 768px), (prefers-reduced-motion: reduce)'
-      ).matches
+    () => window.matchMedia(FLOW_LAYOUT_QUERY).matches
   )
   const [loaded, setLoaded] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -27,9 +26,7 @@ export default function App() {
   const activeSectionRef = useRef('hero')
 
   useEffect(() => {
-    const query = window.matchMedia(
-      '(max-width: 768px), (prefers-reduced-motion: reduce)'
-    )
+    const query = window.matchMedia(FLOW_LAYOUT_QUERY)
     const update = () => setFlowLayout(query.matches)
     query.addEventListener('change', update)
     return () => query.removeEventListener('change', update)

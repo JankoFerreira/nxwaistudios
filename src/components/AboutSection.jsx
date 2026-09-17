@@ -68,12 +68,11 @@ export default function AboutSection() {
   const pills = [
     'Three.js',
     'WebGL',
-    'AI Integration',
     'React',
-    'Generative Art',
+    'Motion Design',
     'GSAP',
     'Real-time 3D',
-    'LLM APIs',
+    'Responsive UI',
     'Next.js',
     'Node.js',
   ]
@@ -92,21 +91,21 @@ export default function AboutSection() {
             <div className="about__line-inner" />
           </div>
           <h2 className="about__heading display-lg">
-            Where <span className="grad-cyan">AI</span> supports
+            Where <span className="grad-cyan">design</span> supports
             <br />
-            better <span className="grad-purple">web design</span>
+            better <span className="grad-purple">business</span>
           </h2>
           <div className="about__body">
             <p className="text-body">
-              NexWeb AI Studios is a creative technology studio for businesses
-              that want a distinctive, high-performing web presence without the
-              generic agency process.
+              NexWeb Studios is a creative web studio for businesses that want
+              a distinctive, high-performing online presence without the generic
+              agency process.
             </p>
             <p className="text-body">
               We shape the concept, design the interface, build the front end,
-              and add AI where it improves the experience. The result is a site
-              that looks memorable, loads quickly, and gives visitors a clear
-              next step.
+              and tune the experience for speed, clarity, and trust. The result
+              is a site that looks memorable, loads quickly, and gives visitors
+              a clear next step.
             </p>
           </div>
           <div className="about__pills">
@@ -132,8 +131,8 @@ export default function AboutSection() {
             },
             {
               num: '03',
-              title: 'Useful AI Layers',
-              desc: 'AI is added where it helps visitors explore, choose, enquire, or understand the offer faster.',
+              title: 'Built to Grow',
+              desc: 'The structure leaves room for future features, integrations, and smarter tools when the business is ready.',
             },
           ].map((card) => (
             <div className="about__card glass-card hoverable" key={card.num}>

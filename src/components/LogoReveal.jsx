@@ -97,11 +97,10 @@ export default function LogoReveal() {
           </h2>
           <p className="logo-reveal__sub text-body">
             If your brand needs more than a template, NXW can help shape the
-            concept, interface, motion, and AI layer into one focused digital
-            experience.
+            concept, interface, and motion into one focused digital experience.
           </p>
           <div className="logo-reveal__signals" aria-label="Project strengths">
-            {['Fast Delivery', '3D Web', 'AI Interfaces', 'Motion Systems'].map(
+            {['Fast Delivery', '3D Web', 'Responsive Design', 'Motion Systems'].map(
               (signal) => (
                 <span className="logo-reveal__signal" key={signal}>
                   {signal}
@@ -141,7 +140,7 @@ export default function LogoReveal() {
                 type="button"
                 onClick={() =>
                   (window.location.href =
-                    'mailto:hello@nxwstudios.ai?subject=New%20NXW%20project')
+                    'mailto:hello@nxwb-studios.co.za?subject=New%20NXW%20project')
                 }
               >
                 Start a Project
@@ -156,10 +155,10 @@ export default function LogoReveal() {
                 </svg>
               </button>
               <a
-                href="mailto:hello@nxwstudios.ai"
+                href="mailto:hello@nxwb-studios.co.za"
                 className="btn btn-outline hoverable"
               >
-                hello@nxwstudios.ai
+                hello@nxwb-studios.co.za
               </a>
             </div>
           </div>
@@ -168,7 +167,7 @@ export default function LogoReveal() {
         <footer className="logo-reveal__footer-bar">
           <div className="logo-reveal__footer">
             <span className="logo-reveal__footer-item text-mono">
-              (c) 2026 NexWeb AI Studios. All rights reserved.
+              (c) 2026 NexWeb Studios. All rights reserved.
             </span>
             <span className="logo-reveal__footer-item text-mono">
               Johannesburg / Cape Town / Global
