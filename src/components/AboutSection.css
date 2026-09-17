@@ -8,8 +8,8 @@
   max-width: 1900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(3rem, 6vw, 8rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+  gap: clamp(2.5rem, 4.5vw, 6rem);
   align-items: start;
 }
 
@@ -35,6 +35,7 @@
 }
 
 .about__heading {
+  font-size: clamp(2.6rem, 5vw, 5.15rem);
   line-height: 1.05;
 }
 
@@ -73,12 +74,12 @@
 .about__right {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem, 1.4vh, 1.5rem);
-  padding-top: clamp(0.5rem, 3vh, 3rem);
+  gap: clamp(0.65rem, 1.1vh, 1.2rem);
+  padding-top: clamp(0.25rem, 2vh, 2rem);
 }
 
 .about__card {
-  padding: clamp(1.2rem, 2.3vh, 2rem);
+  padding: clamp(1rem, 1.8vh, 1.55rem);
   position: relative;
   overflow: hidden;
   transition:

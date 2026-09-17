@@ -527,15 +527,15 @@ body.menu-open {
 
 @media (max-height: 900px) and (min-width: 1025px) and (min-height: 651px) {
   :root {
-    --section-content-scale: 0.84;
-    --section-content-y: 3.5vh;
+    --section-content-scale: 0.78;
+    --section-content-y: 2vh;
   }
 }
 
 @media (max-height: 780px) and (min-width: 1025px) and (min-height: 651px) {
   :root {
-    --section-content-scale: 0.72;
-    --section-content-y: 5vh;
+    --section-content-scale: 0.66;
+    --section-content-y: 2vh;
   }
 }
 
@@ -550,7 +550,7 @@ body.menu-open {
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-size: clamp(2.5rem, 5.4vw, 5.4rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
